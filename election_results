@@ -1,0 +1,55 @@
+from ast import For
+import os
+import csv
+election_csv = os.path.join ("resources", "election_data.csv")
+  
+
+
+candidates = {}
+Total_votes= 0
+winning_votes= 0
+winner= ""
+
+with open(election_csv) as csv_file:
+
+    csv_reader = csv.reader(election_csv)
+    csv_reader= csv.reader(csv_file, delimiter= ",")
+    next(csv_reader)
+
+for row in csv_reader:
+    Total_votes += 1
+
+    candidate = row[2]
+    if candidate in candidates:
+        candidates[candidate] +=1
+    else:
+        candidates[candidate]= 1
+   
+For 
+candidate in candidates
+vote_count= candidates(candidate)
+vote_percentage= round(vote_count/Total_votes*100, 3)
+
+if vote_count > winning_votes:
+    winning_votes = vote_count
+    winner= candidate
+
+    folder = "pypoll"
+    analysis = os.path.join(folder, "analysis.txt")
+
+with open(analysis.txt, "w") as analysis:
+
+    analysis.write("election results \ n ") 
+    analysis.write("-\n")
+    analysis.write("total number of votes: {total_votes}\n")
+    analysis.write("-- \ n")
+    analysis.write(f"Candidate Breakdown:\n")
+
+for candidate in candidate: 
+        vote_count = candidates [candidate]
+        vote_percentage= round(vote_count/Total_votes*100, 3)
+        analysis.write(f"{candidate}: {vote_percentage}% {vote_count}|n")
+        
+        analysis.write("--- \ n ")
+        analysis.write("Winning Candidate: {winner}\n")
+        analysis.write("------")
